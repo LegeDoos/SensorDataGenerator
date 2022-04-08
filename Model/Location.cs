@@ -20,7 +20,7 @@ namespace SensorDataGenerator.Model
         /// <summary>
         /// Sensors in the location to monitor 
         /// </summary>
-        public List<Sensor> Sensors { get; set; }
+        public List<SensorData> Sensors { get; set; }
         /// <summary>
         /// The current datatime to calculate for
         /// </summary>
@@ -35,10 +35,10 @@ namespace SensorDataGenerator.Model
             MaxPersons = 100;
             CurrentPersons = 0;
             CalculatingDateTime = _calculatingDateTime;
-            Sensors = new List<Sensor>();
+            Sensors = new List<SensorData>();
             for (int i = 0; i < _sensors; i++)
             {
-                Sensors.Add(new Sensor(i, Helper.DateToStamp(_calculatingDateTime)));
+                Sensors.Add(new SensorData(i, Helper.DateToStamp(_calculatingDateTime)));
             }
         }
     }

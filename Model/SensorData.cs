@@ -5,14 +5,14 @@ using System.Text;
 namespace SensorDataGenerator.Model
 {
     /// <summary>
-    /// Represents a sensor that is monitoring traffic
+    /// Represents a sensordata of a sensor that is monitoring traffic
     /// </summary>
-    class Sensor
+    class SensorData
     {
         /// <summary>
         /// Id of the sensor
         /// </summary>
-        public int SendorId { get; set; }
+        public int SensorId { get; set; }
         /// <summary>
         /// Number of people in for the timeslot
         /// </summary>
@@ -28,11 +28,11 @@ namespace SensorDataGenerator.Model
         /// </summary>
         public string ResetTimeStamp{ get; set; }
 
-        public Sensor(int _id, string _resetTimeStamp)
+        public SensorData(int _id, string _resetTimeStamp)
         {
             PeopleIn = 0;
             PeopleOut = 0;
-            SendorId = _id;
+            SensorId = _id;
             ResetTimeStamp = _resetTimeStamp;
         }
 

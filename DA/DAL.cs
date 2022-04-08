@@ -101,10 +101,10 @@ namespace SensorDataGenerator.DA
         /// Store the data for one sensor
         /// </summary>
         /// <param name="_sensor">The sensor to store for</param>
-        private void StoreData(Sensor _sensor)
+        private void StoreData(SensorData _sensor)
         {
             // show feedback
-            Console.WriteLine($"Sensor {_sensor.SendorId}, PeopleIn {_sensor.PeopleIn.ToString().PadLeft(5, '0')}, PeopleOut {_sensor.PeopleOut.ToString().PadLeft(5, '0')}, Timestamp {_sensor.ResetTimeStamp}, CurrentPeople {Location.CurrentPersons.ToString().PadLeft(5, '0')}");
+            Console.WriteLine($"Sensor {_sensor.SensorId}, PeopleIn {_sensor.PeopleIn.ToString().PadLeft(5, '0')}, PeopleOut {_sensor.PeopleOut.ToString().PadLeft(5, '0')}, Timestamp {_sensor.ResetTimeStamp}, CurrentPeople {Location.CurrentPersons.ToString().PadLeft(5, '0')}");
 
             // actually save the record
             try
@@ -117,7 +117,7 @@ namespace SensorDataGenerator.DA
                 string sql = "INSERT INTO SensorReading (SensorId, People_in, People_out, TimeStamp) VALUES (@SensorId, @People_in, @People_out, @TimeStamp)";
                 using (SqlCommand cmd = new SqlCommand(sql, cnn))
                 {
-                    cmd.Parameters.AddWithValue("@SensorId", _sensor.SendorId);
+                    cmd.Parameters.AddWithValue("@SensorId", _sensor.SensorId);
                     cmd.Parameters.AddWithValue("@People_in", _sensor.PeopleIn);
                     cmd.Parameters.AddWithValue("@People_out", _sensor.PeopleOut);
                     cmd.Parameters.AddWithValue("@TimeStamp", _sensor.ResetTimeStamp);
